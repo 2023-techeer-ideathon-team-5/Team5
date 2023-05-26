@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import MapComponent from "../components/map";
 
 function CreatePostPage() {
   const [title, setTitle] = useState("");
@@ -6,10 +7,16 @@ function CreatePostPage() {
   const [fieldOne, setFieldOne] = useState("");
   const [fieldTwo, setFieldTwo] = useState("");
   const [fieldThree, setFieldThree] = useState("");
+  const [showMap, setShowMap] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ title, fieldOne, fieldTwo, fieldThree, content });
+  };
+
+  const handlePlaceSelect = (placeName) => {
+    setFieldOne(placeName);
+    setShowMap(false);
   };
 
   return (
@@ -43,8 +50,8 @@ function CreatePostPage() {
                 className="col-span-6 border rounded-md px-3 py-2"
                 type="text"
                 value={fieldOne}
-                onChange={(e) => setFieldOne(e.target.value)}
-                placeholder="한국공학대학교 떡볶이집"
+                onClick={() => setShowMap(true)} // input 클릭 시 지도가 표시됩니다.
+                readOnly // 사용자는 이 입력란에 직접 작성하지 못합니다.
               />
               <input
                 className="col-span-3 border rounded-md px-3 py-2 text-center"
@@ -87,6 +94,7 @@ function CreatePostPage() {
           </div>
         </form>
       </div>
+      {showMap && <MapComponent onPlaceSelect={handlePlaceSelect} />}
     </div>
   );
 }
