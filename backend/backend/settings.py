@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     
  
     'users',
+    'posts',
+    'feedbacks',
 
      'corsheaders', #CorsError
   
