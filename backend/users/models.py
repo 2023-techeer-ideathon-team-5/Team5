@@ -2,7 +2,6 @@ from django.utils import timezone
 from django.db import models
 
 class members(models.Model):
-    id = models.BigIntegerField(primary_key=True, null=False)
     name = models.CharField(max_length=20, null=False)
     password = models.CharField(max_length=1024, null=False)
     university = models.CharField(max_length=1024, null=False)
