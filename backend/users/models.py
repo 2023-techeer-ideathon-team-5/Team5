@@ -1,7 +1,7 @@
 from django.utils import timezone
 from django.db import models
 
-class members(models.Model):
+class users(models.Model):
     id = models.BigIntegerField(primary_key=True, null=False)
     name = models.CharField(max_length=20, null=False)
     password = models.CharField(max_length=1024, null=False)
@@ -12,4 +12,4 @@ class members(models.Model):
     is_deleted = models.IntegerField(null=False, default=0)
 
     class Meta:
-        db_table = 'members'
+        db_table = 'users'
