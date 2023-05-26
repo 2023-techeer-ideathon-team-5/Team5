@@ -1,0 +1,61 @@
+version: "3"
+
+services:
+  frontend:
+    container_name: frontend
+    restart: unless-stopped
+    build:
+      context: ./frontend
+    command: ["yarn", "start"]
+    ports:
+      - 3042:3000
+    volumes:
+      - ./frontend/:/frontend/
+      - ./frontend/node_modules/:/frontend/node_modules
+    environment:
+      - CI=true
+      - CHOKIDAR_USEPOLLING=true
+      - REACT_APP_BACKEND_URL=http://localhost:8000
+    tty: true
+
+  db:
+    image: mysql:latest
+    volumes:
+      - data:/var/lib/mysql_data/data/
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: "eg_db"
+      # MYSQL_USER: root
+      MYSQL_PASSWORD: 1234
+    ports:
+      - 3307:3306
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+      args:
+        DJANGO_ALLOWED_HOSTS: "*"
+        DJANGO_SECRET_KEY: "*"
+        DJANGO_CORS_ORIGIN_WHITELIST: "*"
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
+    volumes:
+      - ./backend/:/backend/
+    expose:
+      - 8000
+    env_file:
+      - ./settings/dev/.env.dev
+    restart: always
+
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  data: null
