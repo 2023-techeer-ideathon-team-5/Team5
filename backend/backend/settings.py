@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'users',
 
      'corsheaders', #CorsError
-    'channels',
+  
 ]
 
 MIDDLEWARE = [
@@ -62,7 +62,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ASGI_APPLICATION = "backend.routing.application"
+
 
 ROOT_URLCONF = "backend.urls"
 
