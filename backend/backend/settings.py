@@ -43,15 +43,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    
- 
     'users',
     'posts',
     'feedbacks',
-
-     'corsheaders', #CorsError
-  
+    'corsheaders',
 ]
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', #CorsError
