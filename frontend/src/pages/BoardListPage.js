@@ -5,36 +5,36 @@ import { FaUser, FaSearch } from "react-icons/fa";
 const dummyData = [
   {
     id: 1,
-    type: "사주세요",
-    title: "첫 번째 게시글",
-    name: "사용자1",
+    type: "배달해주세요",
+    title: "서브웨이 배달 해주세요",
+    name: "정태원",
     time: "2023-05-27 10:00:00",
   },
   {
     id: 2,
-    type: "사드립니다",
-    title: "두 번째 게시글",
+    type: "배달해드립니다",
+    title: "붕어빵 드실분",
     name: "사용자2",
     time: "2023-05-27 11:00:00",
   },
   {
     id: 3,
-    type: "사주세요",
-    title: "세 번째 게시글",
+    type: "배달해주세요",
+    title: "저 어제부터 치킨이 너무 먹고싶어요",
     name: "사용자3",
     time: "2023-05-27 12:00:00",
   },
   {
     id: 4,
-    type: "사드립니다",
-    title: "네 번째 게시글",
+    type: "배달해드립니다",
+    title: "두시까지 마카롱 예약받아요",
     name: "사용자4",
     time: "2023-05-27 13:00:00",
   },
   {
     id: 5,
-    type: "사주세요",
-    title: "다섯 번째 게시글",
+    type: "배달해주세요",
+    title: "배달팁 많이드려요 햄버거 세트 사주세요",
     name: "사용자5",
     time: "2023-05-27 14:00:00",
   },
@@ -74,7 +74,7 @@ function BoardList() {
                 <div className="flex justify-between items-center mb-4">
                   <span
                     className={`text-lg font-bold ${
-                      item.type === "사주세요"
+                      item.type === "배달해주세요"
                         ? "text-blue-500"
                         : "text-red-500"
                     }`}

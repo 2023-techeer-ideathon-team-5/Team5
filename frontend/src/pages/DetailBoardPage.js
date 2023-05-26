@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import MapComponent from "../components/map";
 
 function DetailBoardPage() {
-  const [title, setTitle] = useState("떡볶이 사주실분 구해요");
+  const [title, setTitle] = useState("서브웨이 배달 해주세요");
   const [content, setContent] = useState(
-    " 치즈떡볶이 1개, 오뎅 세트 부탁드립니다"
+    "BMT 30cm 1개로 최대한 빠르게 부탁드립니다 ^^"
   );
-  const [fieldOne, setFieldOne] = useState("정왕 빨간 떡볶이집");
+  const [fieldOne, setFieldOne] = useState("정왕 49 서브웨이");
   const [fieldTwo, setFieldTwo] = useState("13:30분까지");
   const [fieldThree, setFieldThree] = useState("2000원");
   const [showMap, setShowMap] = useState(false);
