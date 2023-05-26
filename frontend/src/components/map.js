@@ -1,12 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 const { kakao } = window;
 
 function MapComponent({ onPlaceSelect }) {
+  const [currentLocation, setCurrentLocation] = useState(null); // 현재 위치 좌표를 저장할 상태 추가
+
   useEffect(() => {
     const initializeMap = () => {
       const container = document.getElementById("map");
       const options = {
-        center: new kakao.maps.LatLng(33.450701, 126.570667),
+        center: new kakao.maps.LatLng(
+          currentLocation.latitude,
+          currentLocation.longitude
+        ),
         level: 3,
       };
 
@@ -30,22 +35,23 @@ function MapComponent({ onPlaceSelect }) {
       });
     };
 
-    if (window.kakao && window.kakao.maps) {
-      initializeMap();
-    } else {
-      const script = document.createElement("script");
-      script.async = true;
-      script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY&autoload=false`;
-
-      script.onload = () => {
-        kakao.maps.load(() => {
-          initializeMap();
-        });
-      };
-
-      document.head.appendChild(script);
+    if (window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          setCurrentLocation({ latitude, longitude });
+        },
+        (error) => {
+          console.log("Geolocation error:", error);
+        }
+      );
     }
-  }, [onPlaceSelect]);
+
+    if (currentLocation) {
+      initializeMap();
+    }
+  }, [currentLocation, onPlaceSelect]);
 
   return (
     <div

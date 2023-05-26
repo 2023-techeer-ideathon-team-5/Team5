@@ -50,22 +50,23 @@ function CreatePostPage() {
                 className="col-span-6 border rounded-md px-3 py-2"
                 type="text"
                 value={fieldOne}
-                onClick={() => setShowMap(true)} // input 클릭 시 지도가 표시됩니다.
-                readOnly // 사용자는 이 입력란에 직접 작성하지 못합니다.
+                onClick={() => setShowMap(true)}
+                readOnly
+                placeholder="원하는 장소의 위치를 클릭해주세요"
               />
               <input
                 className="col-span-3 border rounded-md px-3 py-2 text-center"
                 type="text"
                 value={fieldTwo}
                 onChange={(e) => setFieldTwo(e.target.value)}
-                placeholder="15:00"
+                placeholder="최대 대기 시간을 설정해주세요"
               />
               <input
                 className="col-span-3 border rounded-md px-3 py-2 text-right"
                 type="text"
                 value={fieldThree}
                 onChange={(e) => setFieldThree(e.target.value)}
-                placeholder="원"
+                placeholder="팁 가격을 작성해주세요"
               />
             </div>
             <div className="mt-8">
