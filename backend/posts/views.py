@@ -22,7 +22,7 @@ def createpost(request):
         post.status = request.data.get('status')
         post.apply_member = request.data.get('apply_member')
         post.save()
-        return JsonResponse(status=status.HTTP_200_OK)
+        return JsonResponse({}, status=status.HTTP_200_OK)
     except Post.DoesNotExist as e:
         logging.error(f"post_id: {id} does not exist")
         return JsonResponse({"error": "Error occurred"})
