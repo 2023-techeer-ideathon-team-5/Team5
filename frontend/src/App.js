@@ -7,7 +7,6 @@ import WritePage from "./pages/WritePage";
 import ProfilePage from "./pages/ProfilePage/profilePage";
 import BoardListPage from "./pages/BoardListPage";
 import DetailBoardPage from "./pages/DetailBoardPage";
-import BoardListPage from "./pages/BoardListPage";
 import ChangePasswordPage from "pages/ChangePassword/changePassword";
 import FeedbackPage from "./pages/FeedbackPage/feedbackPage";
 
@@ -15,11 +14,12 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/board-write" element={<WritePage />} />
         <Route path="signup" element={<SignUpPage />} />
         <Route path="/" element={<SignInPage />} />
         <Route path="/post" element={<PostPage />} />
         <Route path="/ProfilePage" element={<ProfilePage />} />
-        <Route path="/board-wirte" element={<WritePage />} />
+
         <Route path="/board-list" element={<BoardListPage />} />
         <Route path="/board/:boardId" element={<DetailBoardPage />} />
         <Route
