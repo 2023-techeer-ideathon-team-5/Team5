@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import MainPage from "./pages/MainPage";
+// import MainPage from "./pages/MainPage";
 import SignUpPage from "./pages/SignUpPage";
 import SignInPage from "./pages/SignInPage";
 import PostPage from "./pages/PostPage/postPage";
@@ -10,8 +10,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="signup" element={<SignUpPage />} />
-        <Route path="signin" element={<SignInPage />} />
-        <Route path="/" element={<MainPage />} />
+        <Route path="/" element={<SignInPage />} />
         <Route path="/post" element={<PostPage />} />
         <Route path="/ProfilePage" element={<ProfilePage />} />
       </Routes>
