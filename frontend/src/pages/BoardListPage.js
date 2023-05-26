@@ -66,9 +66,11 @@ function BoardList() {
         ))}
         <main className="flex flex-col items-center justify-center flex-1 p-4">
           <div className="mb-8"></div>
-          <button className="px-4 py-2 bg-blue-500 text-white rounded-lg">
-            게시글 작성
-          </button>
+          <Link to={`/board-write`}>
+            <button className="px-4 py-2 bg-blue-500 text-white rounded-lg">
+              게시글 작성
+            </button>
+          </Link>
         </main>
 
         <footer className="flex justify-end p-4 bg-gray-200"></footer>

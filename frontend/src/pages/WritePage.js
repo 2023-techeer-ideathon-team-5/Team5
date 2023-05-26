@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import MapComponent from "../components/map";
 
-function DetailBoardPage() {
-  const [title, setTitle] = useState("떡볶이 사주실분 구해요");
-  const [content, setContent] = useState(
-    " 치즈떡볶이 1개, 오뎅 세트 부탁드립니다"
-  );
-  const [fieldOne, setFieldOne] = useState("정왕 빨간 떡볶이집");
-  const [fieldTwo, setFieldTwo] = useState("13:30분까지");
-  const [fieldThree, setFieldThree] = useState("2000원");
+function WritePage() {
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [fieldOne, setFieldOne] = useState("");
+  const [fieldTwo, setFieldTwo] = useState("");
+  const [fieldThree, setFieldThree] = useState("");
   const [showMap, setShowMap] = useState(false);
-  const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,16 +19,12 @@ function DetailBoardPage() {
     setShowMap(false);
   };
 
-  const handleModalClose = () => {
-    setShowModal(false);
-  };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-3/4 space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            게시물 조회
+            게시물 작성
           </h2>
         </div>
 
@@ -95,49 +88,11 @@ function DetailBoardPage() {
           <div>
             <button
               type="submit"
-              onClick={() => setShowModal(true)}
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              승낙하기
+              게시물 작성
             </button>
           </div>
-          {showModal && (
-            <div
-              className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto"
-              onClick={handleModalClose}
-            >
-              <div className="relative w-auto max-w-lg mx-auto my-6">
-                <div className="relative flex flex-col bg-white border-0 rounded-lg shadow-lg">
-                  <div className="flex items-start justify-between p-5 border-b border-solid rounded-t">
-                    <h3 className="text-xl font-semibold">거래가 성립</h3>
-                    <button
-                      className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-xl leading-none font-semibold outline-none focus:outline-none"
-                      onClick={handleModalClose}
-                    >
-                      <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                        ×
-                      </span>
-                    </button>
-                  </div>
-                  <div className="relative p-6 flex-auto z-60">
-                    <p className="text-lg">
-                      아래의 링크를 눌러 오픈채팅방에 참여해주세요
-                      <a
-                        href="https://open.kakao.com/o/sXShwtmf"
-                        className="text-blue-500 underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        https://open.kakao.com/o/sXShwtmf
-                      </a>
-                    </p>
-                    {/* 추가적인 내용 */}
-                  </div>
-                </div>
-              </div>
-              <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
-            </div>
-          )}
         </form>
       </div>
       {showMap && <MapComponent onPlaceSelect={handlePlaceSelect} />}
@@ -145,4 +100,4 @@ function DetailBoardPage() {
   );
 }
 
-export default DetailBoardPage;
+export default WritePage;
