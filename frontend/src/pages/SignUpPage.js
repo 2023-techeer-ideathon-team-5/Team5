@@ -120,7 +120,7 @@ function SignUpPage() {
           <p>
             계정이 있으신가요?{" "}
             <Link
-              to="/signin"
+              to="/"
               className="font-medium text-indigo-600 hover:text-indigo-500"
             >
               로그인하기

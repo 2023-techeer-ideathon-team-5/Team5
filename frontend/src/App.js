@@ -5,6 +5,7 @@ import SignInPage from "./pages/SignInPage";
 import PostPage from "./pages/PostPage/postPage";
 import ProfilePage from "./pages/ProfilePage/profilePage";
 import ChangePasswordPage from "pages/ChangePassword/changePassword";
+import FeedbackPage from "./pages/FeedbackPage/feedbackPage";
 
 import DetailBoardPage from "./pages/DetailBoardPage";
 function App() {
@@ -20,6 +21,7 @@ function App() {
           path="/profilePage/changePassword"
           element={<ChangePasswordPage />}
         />
+        <Route path="/profilePage/feedbackPage" element={<FeedbackPage />} />
       </Routes>
     </Router>
   );
